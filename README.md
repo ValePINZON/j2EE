@@ -1,19 +1,11 @@
 # j2EE
 
-salut, essaie ce type de mapping, cela aide a fetch la bonne colonne de table, tiens moi au courant
+salut, essaie ce type de mapping, cela aide a fetch la bonne colonne de table, tiens moi au courant. si le "referencedColumnName" n'est pas spécifié, hibernate cherche a réconcilier la colonne depuis le nom de la colonne de la table "associea" donc "codem" et comme la colonne équivalente ne porte pas le même nom dans la table "monument", il n'y arrive pas.
 
 @ManyToMany(cascade = CascadeType.ALL)
-@JoinTable(name = "business_vendor",
-        joinColumns = @JoinColumn(name = "business_id"**, referencedColumnName = "enter business Id name"**),
-        inverseJoinColumns = @JoinColumn(name = "vendor_id", **referencedColumnName = "enter vendor Id name"** ))
+@JoinTable(name = "associea",
+        joinColumns = @JoinColumn(name = "celebrite"**, referencedColumnName = "celebriteID"**),
+        inverseJoinColumns = @JoinColumn(name = "codem", **referencedColumnName = "hashcode"** ))
 @JSON(include = false)
-protected List<Vendor> vendors;
+protected List<monument> monumentsVisite;
 
-**OR** 
-
-@ManyToMany(cascade = CascadeType.ALL)
-@JoinTable(name = "business_vendor",
-        joinColumns = @JoinColumn(**name = "tablename_idname"**),
-        inverseJoinColumns = @JoinColumn(**name = "tablename_idname"**))
-@JSON(include = false)
-protected List<Vendor> vendors;
